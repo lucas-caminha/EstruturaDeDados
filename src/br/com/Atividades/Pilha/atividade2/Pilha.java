@@ -1,21 +1,17 @@
 package br.com.Atividades.Pilha.atividade2;
 
 /*
- * 
  * Escreva um programa que utiliza um objeto Pilha para determinar se uma
  * string é um Palíndromo (isto é, a string é escrita identicamente de trás para
  * frente). O programa deve ignorar espaços e pontuação.
- * 
  */
-
-import java.text.Normalizer;
 
 public class Pilha {
 
 	public static void main(String[] args) {
 
 		Pilha pilha = new Pilha();
-		pilha.palindromo("aibo-fobia");
+		pilha.palindromo("ai-bo-fobia");
 
 	}
 
@@ -36,7 +32,7 @@ public class Pilha {
 			push(palavra.charAt(i));
 		}
 
-		removePontuacaoOuEspacos(this.palavra);
+		this.palavra = removePontuacaoOuEspacos(this.palavra);
 
 		if (verificaPalindromo(this.palavra)){
 			System.out.println("A palavra " + palavra + " é um palíndromo.");
@@ -81,17 +77,25 @@ public class Pilha {
 	}
 
 	// Verifica se a pilha tem pontuação ou espaços
-	public void removePontuacaoOuEspacos(char[] palavra){
+	public char[] removePontuacaoOuEspacos(char[] palavra){
+		
+		char[] substituto = new char[palavra.length];
+		int perc = 0;
 
 		for (int i = 0; i < palavra.length; i++){
 			for (int j = 0; j < ignore.length; j++){
-				if (palavra[i] == ignore[j]){
-					//palavra[i] = palavra[i+1];
+				
+				if (palavra[i] != ignore[j]){
+					substituto[perc] = palavra[i];	
+				}else {
+					this.posicaoPilha--;
+					i++;
 				}
 			}
+			perc++;
 		}
 
-
+		return substituto;
 	}
 
 }
