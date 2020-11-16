@@ -1,4 +1,4 @@
-package br.com.Atividades.Fila.atividade1;
+package br.com.Atividades.Fila.exemplo;
 
 public class Run {
 	public static void main(String[] args) {

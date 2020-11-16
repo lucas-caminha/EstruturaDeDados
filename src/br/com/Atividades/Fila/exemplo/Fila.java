@@ -1,4 +1,4 @@
-package br.com.Atividades.Fila.atividade1;
+package br.com.Atividades.Fila.exemplo;
 
 import java.util.Iterator;
 
